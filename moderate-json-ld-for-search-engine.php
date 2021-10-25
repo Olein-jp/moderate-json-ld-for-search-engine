@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Plugin Name:       Moderate Json Ld For Search Engine
  * Description:       Example block written with ESNext standard and JSX support – build step required.
@@ -20,9 +21,10 @@
  *
  * @see https://developer.wordpress.org/block-editor/tutorials/block-tutorial/writing-your-first-block-type/
  */
-function mdse_create_block() {
-	register_block_type( __DIR__ );
+function mjse_create_block()
+{
+	register_block_type(__DIR__);
 }
-add_action( 'init', 'mdse_create_block' );
+add_action('init', 'mjse_create_block');
 
 require 'setting-page/setting-page.php';
