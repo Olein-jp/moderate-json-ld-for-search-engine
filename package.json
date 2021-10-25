@@ -10,7 +10,7 @@
 		"format": "wp-scripts format",
 		"lint:css": "wp-scripts lint-style",
 		"lint:js": "wp-scripts lint-js",
-		"start": "wp-scripts start && open http://localhost:8888",
+		"start": "wp-env start && open http://localhost:8888",
 		"stop": "wp-env stop",
 		"destroy": "wp-env destroy",
 		"clean:block": "rimraf build/block",
