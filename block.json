@@ -1,0 +1,21 @@
+{
+	"apiVersion": 2,
+	"name": "mjse/moderate-json-ld-for-search-engine",
+	"version": "0.1.0",
+	"title": "Moderate Json Ld For Search Engine",
+	"category": "widgets",
+	"icon": "smiley",
+	"description": "Example block written with ESNext standard and JSX support – build step required.",
+	"supports": {
+		"html": false
+	},
+  	"attributes": {
+		"jsonType": {
+		  "type": "string"
+		}
+  	},
+  	"textdomain": "mjse",
+	"editorScript": "file:./build/block/index.js",
+	"editorStyle": "file:./build/block/editor.css",
+	"style": "file:./build/block/style.css"
+}

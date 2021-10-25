@@ -1,0 +1,37 @@
+{
+	"name": "moderate-json-ld-for-search-engine",
+	"version": "0.1.0",
+	"description": "Example block written with ESNext standard and JSX support – build step required.",
+	"author": "The WordPress Contributors",
+	"license": "GPL-2.0-or-later",
+	"main": "build/index.js",
+	"scripts": {
+		"build": "wp-scripts build",
+		"format": "wp-scripts format",
+		"lint:css": "wp-scripts lint-style",
+		"lint:js": "wp-scripts lint-js",
+		"start": "wp-scripts start && open http://localhost:8888",
+		"stop": "wp-env stop",
+		"destroy": "wp-env destroy",
+		"clean:block": "rimraf build/block",
+		"block:js": "wp-scripts build src/block/index.js --output-path=build/block",
+		"block:css": "sass src/block:build/block --no-source-map --style expanded && postcss build/block/*.css -r",
+		"block": "npm run clean:block && npm-run-all -s block:*",
+		"packages-update": "wp-scripts packages-update"
+	},
+	"dependencies": {
+		"@wordpress/block-editor": "^7.0.4",
+		"@wordpress/blocks": "^11.1.2",
+		"@wordpress/i18n": "^4.2.3"
+	},
+	"devDependencies": {
+		"@wordpress/scripts": "^19.0.0",
+		"css-mqpacker": "^7.0.0",
+		"dart-sass": "^1.25.0",
+		"npm-run-all": "^4.1.5",
+		"postcss": "^8.3.11",
+		"postcss-cli": "^9.0.1",
+		"postcss-mq-optimize": "^1.1.0",
+		"rimraf": "^3.0.2"
+	}
+}
