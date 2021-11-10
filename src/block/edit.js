@@ -1,33 +1,38 @@
 import { __ } from '@wordpress/i18n';
+import { TextControl } from '@wordpress/components';
+import { useSelect } from '@wordpress/data';
+import { useEntityProp } from '@wordpress/core-data';
 import { useBlockProps } from '@wordpress/block-editor';
-
-import { SelectControl } from '@wordpress/components';
 
 import './editor.scss';
 
 export default function Edit( { attributes, setAttributes } ) {
-	const { jsonType, setJsonType }= attributes;
+	const blockProps = useBlockProps();
+	const postType = useSelect(
+		( select ) => select( 'core/editor' ).getCurrentPostType(),
+		[]
+	);
+	const [ meta, setMeta ] = useEntityProp(
+		'postType',
+		postType,
+		'meta'
+	);
+	const presetMetaFieldValue = meta[ 'mjse-sample-01' ];
+	const metaFieldValue = meta[ 'mjse_mjse-sample-01' ];
+	function updateMetaValue( newValue ) {
+		if ( presetMetaFieldValue === '' ) {
+			setMeta({...meta, 'mjse-sample-01': newValue});
+		} else {
+			setMeta({...meta, 'mjse_mjse-sample-01': newValue});
+		}
+	}
 
 	return (
-		<div { ...useBlockProps() } >
-			<SelectControl
-				label="JSON-LD type"
-				value={ jsonType }
-				options={ [
-					{
-						label: __('Recruit', 'mjse' ),
-						value: 'recruit'
-					},
-					{
-						label: __('Item', 'mjse' ),
-						value: 'ec-item'
-					},
-					{
-						label: __('Local Business', 'mjse' ),
-						value: 'local-business'
-					},
-				] }
-				onChange={ ( newJsonType ) => setJsonType( newJsonType ) }
+		<div { ...blockProps }>
+			<TextControl
+				label="mjse_mjse-sample-01"
+				value={ metaFieldValue }
+				onChange={ updateMetaValue }
 			/>
 		</div>
 	);

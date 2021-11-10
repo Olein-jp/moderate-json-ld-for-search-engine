@@ -28,3 +28,18 @@ function mjse_create_block()
 add_action('init', 'mjse_create_block');
 
 require 'setting-page/setting-page.php';
+
+/**
+ * Register Custom meta
+ */
+function mjse_register_post_meta() {
+	register_post_meta( 'post', 'mjse_mjse-sample-01', array(
+		'show_in_rest' => true,
+		'single' => true,
+		'type' => 'string',
+		'auth_callback' => function() {
+			return current_user_can( 'edit_posts' );
+		}
+	) );
+}
+add_action( 'init', 'mjse_register_post_meta' );
