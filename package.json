@@ -6,17 +6,15 @@
 	"license": "GPL-2.0-or-later",
 	"main": "build/index.js",
 	"scripts": {
-		"build": "npm run block",
-		"format": "wp-scripts format",
 		"lint:css": "wp-scripts lint-style",
 		"lint:js": "wp-scripts lint-js",
 		"start": "wp-env start && open http://localhost:8888",
 		"stop": "wp-env stop",
 		"destroy": "wp-env destroy",
-		"clean:block": "rimraf build/block",
-		"block:js": "wp-scripts build src/block/index.js --output-path=build/block",
-		"block:css": "sass src/block:build/block --no-source-map --style expanded && postcss build/block/*.css -r",
-		"block": "npm run clean:block && npm-run-all -s block:*",
+		"block:jobPosting:clean": "rimraf block/jobposting/build && mkdir -p block/jobposting/build",
+		"block:jobPosting:js": "wp-scripts build block/jobposting/src/index.js --output-path=block/jobposting/build",
+	  	"block:jobPostng": "run-s block:jobPosting:*",
+		"block": "run-s block:*",
 		"packages-update": "wp-scripts packages-update"
 	},
 	"dependencies": {

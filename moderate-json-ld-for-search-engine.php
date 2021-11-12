@@ -14,32 +14,4 @@
  * @package           create-block
  */
 
-/**
- * Registers the block using the metadata loaded from the `block.json` file.
- * Behind the scenes, it registers also all assets so they can be enqueued
- * through the block editor in the corresponding context.
- *
- * @see https://developer.wordpress.org/block-editor/tutorials/block-tutorial/writing-your-first-block-type/
- */
-function mjse_create_block()
-{
-	register_block_type(__DIR__);
-}
-add_action('init', 'mjse_create_block');
-
-require 'setting-page/setting-page.php';
-
-/**
- * Register Custom meta
- */
-function mjse_register_post_meta() {
-	register_post_meta( 'post', 'mjse_mjse-sample-01', array(
-		'show_in_rest' => true,
-		'single' => true,
-		'type' => 'string',
-		'auth_callback' => function() {
-			return current_user_can( 'edit_posts' );
-		}
-	) );
-}
-add_action( 'init', 'mjse_register_post_meta' );
+@include 'block/jobposting/index.php';
