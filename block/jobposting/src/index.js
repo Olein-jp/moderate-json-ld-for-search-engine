@@ -13,6 +13,10 @@ registerBlockType( 'mjse/jobposting', {
 		jobPostingTitle: {
 			type: 'string',
 			default: ''
+		},
+		jobPostingDescription: {
+			type: 'string',
+			default: ''
 		}
 	},
 	edit: Edit,

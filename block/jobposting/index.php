@@ -6,6 +6,16 @@ function mjse_jobposting_render( $attr, $content ) {
 	var_dump( $attr );
 	echo( '</pre>' );
 	echo '<hr>';
+	?>
+	<script type="application/ld+json">
+		{
+			"@context" : "https://schema.org",
+			"@type" : "JobPosting",
+			"title" : "<?php echo $attr[ 'jobPostingTitle' ]; ?>",
+			"description" : "<?php echo $attr[ 'jobPostingDescription' ]; ?>"
+		}
+	</script>
+	<?php
 	$output = ob_get_contents();
 	ob_end_clean();
 	return $output;
