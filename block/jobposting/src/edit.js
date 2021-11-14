@@ -9,7 +9,9 @@ const Edit = ( props ) => {
 	const {
 		attributes: {
 			jobPostingTitle,
-			jobPostingDescription
+			jobPostingDescription,
+			jobPostingIdentifierName,
+			jobPostingIdentifierValue
 		},
 		setAttributes
 	} = props;
@@ -17,6 +19,7 @@ const Edit = ( props ) => {
 		<div { ...blockProps }>
 			<TextControl
 				label="jobPostingTitle"
+				help="求人タイトルを入力してください。（必須）"
 				value={ jobPostingTitle }
 				onChange={ ( newJobPostingTitle ) => setAttributes({ jobPostingTitle: newJobPostingTitle }) }
 			/>
@@ -25,6 +28,16 @@ const Edit = ( props ) => {
 				help="Enter jobPosting description"
 				value={ jobPostingDescription }
 				onChange={ ( newJobPostingDescription ) => setAttributes({ jobPostingDescription: newJobPostingDescription }) }
+			/>
+			<TextControl
+				label="jobPostingIdentifierName"
+				value={ jobPostingIdentifierName }
+				onChange={ ( newJobPostingIdentifierName ) => setAttributes({ jobPostingIdentifierName: newJobPostingIdentifierName }) }
+			/>
+			<TextControl
+				label="jobPostingIdentifierValue"
+				value={ jobPostingIdentifierValue }
+				onChange={ ( newJobPostingIdentifierValue ) => setAttributes({ jobPostingIdentifierValue: newJobPostingIdentifierValue }) }
 			/>
 		</div>
 	);

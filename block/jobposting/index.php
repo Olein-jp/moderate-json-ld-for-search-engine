@@ -12,7 +12,12 @@ function mjse_jobposting_render( $attr, $content ) {
 			"@context" : "https://schema.org",
 			"@type" : "JobPosting",
 			"title" : "<?php echo $attr[ 'jobPostingTitle' ]; ?>",
-			"description" : "<?php echo $attr[ 'jobPostingDescription' ]; ?>"
+			"description" : "<?php echo $attr[ 'jobPostingDescription' ]; ?>",
+			"identifier": {
+  				"@type": "PropertyValue",
+  				"name": "<?php echo $attr[ 'jobPostingIdentifierName' ]; ?>",
+  				"value": "<?php echo $attr[ 'jobPostingIdentifierValue' ]; ?>"
+			}
 		}
 	</script>
 	<?php

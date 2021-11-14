@@ -17,6 +17,14 @@ registerBlockType( 'mjse/jobposting', {
 		jobPostingDescription: {
 			type: 'string',
 			default: ''
+		},
+		jobPostingIdentifierName: {
+			type: 'string',
+			default: ''
+		},
+		jobPostingIdentifierValue: {
+			type: 'string',
+			default: ''
 		}
 	},
 	edit: Edit,
