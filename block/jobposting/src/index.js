@@ -10,10 +10,9 @@ registerBlockType( 'mjse/jobposting', {
 		html:false,
 	},
 	attributes: {
-		myTest: {
+		jobPostingTitle: {
 			type: 'string',
-			default: '',
-			selector: '.myRichTextTest'
+			default: ''
 		}
 	},
 	edit: Edit,

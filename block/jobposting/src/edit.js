@@ -4,15 +4,15 @@ import { TextControl } from '@wordpress/components';
 const Edit = ( props ) => {
 	const blockProps = useBlockProps();
 	const {
-		attributes: { myTest },
+		attributes: { jobPostingTitle },
 		setAttributes
 	} = props;
 	return (
 		<div { ...blockProps }>
 			<TextControl
-				label="myTest"
-				value={ myTest }
-				onChange={ ( newTest ) => setAttributes({ myTest: newTest }) }
+				label="jobPostingTitle"
+				value={ jobPostingTitle }
+				onChange={ ( newJobPostingTitle ) => setAttributes({ jobPostingTitle: newJobPostingTitle }) }
 			/>
 		</div>
 	);
